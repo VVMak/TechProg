@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 path=$1
 extension=$2
 directory=$3
