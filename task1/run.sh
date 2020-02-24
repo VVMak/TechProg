@@ -11,5 +11,5 @@ for file in $filepath; do
     mkdir -p ./${directory}/${folder#${path}}
     cp ${file} ./${directory}/${file#${path}}
 done
-tar -cf ${archive} ./${directory}
+tar -cfz ${archive} ./${directory}
 echo "done"
