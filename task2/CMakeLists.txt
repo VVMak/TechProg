@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(MainProject)
+project(C)
 
 set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
@@ -21,8 +21,11 @@ set(SOURCES ${PROJECT_SOURCE_DIR}/C/main.cpp ${PROJECT_SOURCE_DIR}/A/index.cpp )
 
 add_custom_target( RunGenerator DEPENDS ${PROJECT_SOURCE_DIR}/A/index.h COMMENT "Checking if re-generation is required" )
 
-add_executable(MainProject ${SOURCES})
-add_dependencies( MainProject RunGenerator )
+add_executable(C ${SOURCES})
+add_dependencies( C RunGenerator )
 add_subdirectory(${PROJECT_SOURCE_DIR}/B)
 
-target_link_libraries(MainProject BLib)
+target_link_libraries(C BLib)
+
+enable_testing()
+add_subdirectory(${PROJECT_SOURCE_DIR}/C)
