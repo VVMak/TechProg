@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.0)
-project(SimpleLibrary)
 
 set(CMAKE_SKIP_BUILD_RPATH FALSE)
 
@@ -28,6 +27,8 @@ else()
 	set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SimpleLibrary_SOURCE_DIR}/bin)
 	set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${SimpleLibrary_SOURCE_DIR}/lib)
 endif()
+
+project(SimpleLibrary)
 
 include_directories(include)
 
