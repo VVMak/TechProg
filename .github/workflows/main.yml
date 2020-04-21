@@ -21,8 +21,8 @@ jobs:
         make
         cd ..
         mkdir Distributive
-        cp bin Distributive
-        cp lib Distributive
+        cp -r bin Distributive
+        cp -r lib Distributive
 
     - name: Test
       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
