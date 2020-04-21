@@ -15,9 +15,9 @@ jobs:
         cd task4/TechProgCITemplate
         git clone https://github.com/google/googletest.git
         mv googletest/ 3rdparty
-        cd ..
         mkdir build
-	cd build
+        cd build
         cmake ..
         make
         cd ..
+
