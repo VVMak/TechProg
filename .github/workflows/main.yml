@@ -20,15 +20,21 @@ jobs:
         cmake ..
         make
         cd ..
+        mkdir Distributive
+        cp bin Distributive
+        cp lib Distributive
 
     - name: Test
       uses: akhtyamovpavel/ActionGtestReport@v0.0.9
       with:
         exec-path: ./bin/CTestExe
         report-path: ./report.xml
-        working-directory: .
+        working-directory: ./task4/TechProgCITemplate
+
     - name: UploadArtifacts
       uses: actions/upload-artifact@v1
       with:
-        name: artifacts
-        path: ./task4/TechProgCITemplate/lib
+        name: Build
+        path: ./task4/TechProgCITemplate/temp
+
+
