@@ -37,4 +37,8 @@ jobs:
         name: Build
         path: ./task4/TechProgCITemplate/Distributive
 
-
+    - name: ElseUploadArtifacts
+      uses: actions/upload-artifacts@v1
+      with:
+        name: test-report
+        path: ./task4/TechProgCITemplate/report.xml
