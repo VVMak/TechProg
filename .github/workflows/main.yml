@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [ master, task4 ]
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      run: |
+        cd task4/
+        mkdir 3rdparty
+        git clone https://github.com/google/googletest.git 3rdparty
+        mkdir build
+        cd build
+        cmake ..
+        make
+        cd ..
+        mkdir Distributive
+        cp -r bin Distributive
+        cp -r lib Distributive
+
+    - name: Test
+      uses: akhtyamovpavel/ActionGtestReport@v0.0.9
+      with:
+        exec-path: ./bin/CTestExe
+        report-path: ./report.xml
+        working-directory: ./task4/
+
+    - name: UploadArtifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: Distributive
+        path: ./task4/Distributive
+
+    - name: ElseUploadArtifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: test-report
+        path: ./task4/report.xml
