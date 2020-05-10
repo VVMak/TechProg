@@ -41,5 +41,5 @@ TEST(TreeTestCase, MainCase) {
     freopen((tmp + "/TestFolder/SubFolder/second.txt").c_str(), "w", stdout);
     std::cout << "Second\n";
     ASSERT_FALSE(GetTree(tmp + "/TestFolder", true) == GetTree(tmp + "/TestFolder", false));
-    remove_all(tmp + "/TestFolder");
+    boost::filesystem::remove_all(tmp + "/TestFolder");
 }
